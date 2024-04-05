@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form Submission</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <h2>Simple Form Submission</h2>
+        <!-- Form for user input -->
+        <form id="myForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Display area for submission message -->
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // JavaScript code
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            
+            // Get form data
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            
+            // Construct submission message
+            var message = "Thank you, " + name + "! We have received your submission with email: " + email + ".";
+            
+            // Display submission message
+            document.getElementById("message").innerText = message;
+            
+        });
+    </script>
+</body>
+</html>
